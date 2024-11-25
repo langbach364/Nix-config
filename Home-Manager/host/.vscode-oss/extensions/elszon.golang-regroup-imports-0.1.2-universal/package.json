@@ -1,0 +1,93 @@
+{
+	"name": "golang-regroup-imports",
+	"displayName": "Golang regroup imports",
+	"description": "Regroup golang imports on save",
+	"version": "0.1.2",
+	"publisher": "elszon",
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/elszon/golang-regroup-imports/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/elszon/golang-regroup-imports.git"
+	},
+	"bugs": {
+		"url": "https://github.com/elszon/golang-regroup-imports/issues"
+	},
+	"icon": "assets/logo.png",
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:go"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.goRegroupImports.toggle",
+				"title": "Go Regroup Imports toggle"
+			}
+		],
+		"configuration": {
+			"title": "Go Regroup Imports",
+			"properties": {
+				"regroupImports.onSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically regroup golang imports on save."
+				},
+				"regroupImports.organization": {
+					"type": "string",
+					"default": "",
+					"description": "Prefix which is used to create organization group. If not set it's discovered from module name which should be in format `github.com\\organization_name\\... ."
+				},
+				"regroupImports.logLevel": {
+					"type": "string",
+					"default": "INFO",
+					"enum": [
+						"ERROR",
+						"WARN",
+						"INFO",
+						"DEBUG"
+					],
+					"description": "Select logging level."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.9",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.95.0",
+		"@typescript-eslint/eslint-plugin": "^8.10.0",
+		"@typescript-eslint/parser": "^8.7.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.13.0",
+		"typescript": "^5.6.3"
+	},
+	"__metadata": {
+		"id": "56efca24-8879-41b5-b824-4f5241691d4e",
+		"publisherId": "9feeace0-66be-4221-a896-74eae15613a9",
+		"publisherDisplayName": "elszon",
+		"targetPlatform": "universal",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1732435177786,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}
