@@ -7,8 +7,6 @@
   };
 
   imports = [ 
-    ./host/application/vscodium.nix
-    ./host/application/fcitx5-bamboo.nix
     ./host/package.nix
   ];
 
@@ -17,7 +15,7 @@
 
   home = {
     username = "langbach364";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "/home/langbach364";
     stateVersion = "24.05";
     packages = [ ];
   };
