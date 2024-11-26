@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }: {
   home.packages = with pkgs; [
-    (vscodium.override {
-      commandLineArgs = "--enable-wayland-ime --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-smooth-scrolling";
-    })
+    vscodium
   ];
 
   xdg = {
@@ -11,7 +9,7 @@
       name = "VSCodium";
       genericName = "Text Editor";
       comment = "Code Editing. Redefined.";
-      exec = "${pkgs.vscodium}/bin/codium --open-url %U";
+      exec = "${pkgs.vscodium}/bin/codium --open-url --enable-wayland-ime %U";
       icon = "vscodium";
       mimeType = [
         "x-scheme-handler/vscodium"
