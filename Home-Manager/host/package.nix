@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
 imports = [
     ./application/vscodium.nix
@@ -20,5 +20,6 @@ imports = [
     nix-tree
     manix
     nix-index
+   
   ];
 }

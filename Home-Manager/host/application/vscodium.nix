@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{pkgs, lib, ... }: {
   home.packages = with pkgs; [
     vscodium
   ];
@@ -24,8 +24,8 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/vscodium" = ["codium.desktop"];
-        "text/plain" = ["codium.desktop"];
+        "x-scheme-handler/vscodium" = ["codium.desktop" "codium-url-handler.desktop"];
+        "text/plain" = ["codium.desktop" "codium-url-handler.desktop"];
       };
     };
   };

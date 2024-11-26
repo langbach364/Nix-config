@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   fcitx5-bamboo = pkgs.fetchFromGitHub {
