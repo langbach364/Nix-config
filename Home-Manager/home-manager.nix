@@ -8,6 +8,7 @@
 
   imports = [ 
     ./host/package.nix
+   ./module/nbfc-gui/package/nbfc-gui.nix
   ];
 
   # Specify home-manager settings
