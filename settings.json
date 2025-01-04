@@ -80,11 +80,41 @@
     "terminal.integrated.focusAfterRun": "terminal",
     "terminal.integrated.defaultProfile.linux": "zsh (2)",
     "code-runner.runInTerminal": true,
-    "terminal.integrated.sendKeybindingsToShell": true,
     "cody.debug.verbose": true,
     "notebook.defaultFormatter": "esbenp.prettier-vscode",
     "nix.enableLanguageServer": true,
     "nix.formatterPath": "nixpkgs-fmt",
     "editor.unicodeHighlight.invisibleCharacters": false,
+    "database-client.autoSync": true,
+    "terminal.integrated.sendKeybindingsToShell": false,
+    "git.autofetch": true,
+    "diffEditor.maxComputationTime": 0,
+    "cody.autocomplete.enabled": true,
+    "cody.autocomplete.formatOnAccept": true,
+    "go.toolsManagement.autoUpdate": true,
+    "[dockercompose]": {
+      "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
   }
   
