@@ -1,0 +1,95 @@
+{
+	"name": "mermaid-markdown-syntax-highlighting",
+	"displayName": "Mermaid Markdown Syntax Highlighting",
+	"description": "Markdown syntax support for the Mermaid charting language",
+	"icon": "images/icon/iconPNG.png",
+	"version": "1.7.0",
+	"publisher": "bpruitt-goddard",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.19.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "mermaid",
+				"extensions": [
+					".mmd",
+					".mermaid"
+				],
+				"configuration": "./mermaid-language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "mermaid",
+				"scopeName": "markdown.mermaid.codeblock",
+				"path": "./out/mermaid.tmLanguage-markdown.json"
+			},
+			{
+				"scopeName": "markdown.mermaid.codeblock",
+				"path": "./out/mermaid.tmLanguage-markdown.json",
+				"injectTo": [
+					"text.html.markdown"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.mermaid": "mermaid"
+				}
+			},
+			{
+				"scopeName": "mdx.mermaid.codeblock",
+				"path": "./out/mermaid.tmLanguage-mdx.json",
+				"injectTo": [
+					"source.mdx"
+				],
+				"embeddedLanguages": {
+					"mdx.embedded.mermaid": "mermaid"
+				}
+			},
+			{
+				"language": "mermaid",
+				"scopeName": "source.mermaid",
+				"path": "./out/mermaid.tmLanguage.json"
+			}
+		]
+	},
+	"bugs": {
+		"url": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight/issues"
+	},
+	"homepage": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight.git"
+	},
+	"keywords": [
+		"mermaid"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run convertYaml",
+		"convertYaml": "node build/ConvertYaml.js",
+		"test": "vscode-tmgrammar-test \"tests/**/*.test.{mermaid,md,mdx}\"",
+		"format:write": "prettier --write syntaxes"
+	},
+	"devDependencies": {
+		"js-yaml": "^3.13.1",
+		"prettier": "^3.3.3",
+		"vscode-tmgrammar-test": "^0.1.1",
+		"yaml-import": "^2.0.0"
+	},
+	"__metadata": {
+		"id": "08792992-bb56-41fb-b5dd-8551bbee0cb6",
+		"publisherDisplayName": "bpruitt-goddard",
+		"publisherId": "79536266-6400-41d0-b043-2af5390d2788",
+		"targetPlatform": "universal",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1738381884509,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

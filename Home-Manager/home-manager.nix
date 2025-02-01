@@ -16,9 +16,9 @@
   targets.genericLinux.enable = true;
 
   home = {
-    username = "langbach364";
-    homeDirectory = "/home/langbach364";
-    stateVersion = "24.05";
+    username = "bachlang364";
+    homeDirectory = "/home/bachlang364";
+    stateVersion = "24.11";
     packages = [ ];
   };
 }

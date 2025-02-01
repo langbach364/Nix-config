@@ -1,11 +1,23 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
+  fcitx5-overlay = self: super: {
+    fcitx5 = super.fcitx5.overrideAttrs (old: {
+      version = "5.1.12";
+      src = pkgs.fetchFromGitHub {
+        owner = "fcitx";
+        repo = "fcitx5";
+        rev = "5.1.12";
+        sha256 = "1kibllllnysv28zmhl95q84dyprhbc99b3d7yhkmcqzbm5ixhki6";
+      };
+    });
+  };
+
   fcitx5-bamboo = pkgs.fetchFromGitHub {
     owner = "fcitx";
     repo = "fcitx5-bamboo";
-    rev = "1.0.6";
-    sha256 = "1k7c14kpskcs68l0vdydalsfsd122wymhd47l65m22p1rgch0mq2";
+    rev = "1.0.7";
+    sha256 = "ofQIoaflCUBwR6M/PqYk7Z+KqXjumH6gC6dzUFG0gNs=";
   };
 
   bamboo-core = pkgs.fetchFromGitHub {
@@ -17,7 +29,7 @@ let
 
   fcitx5-bamboo-pkg = pkgs.stdenv.mkDerivation {
     pname = "fcitx5-bamboo";
-    version = "1.0.6";
+    version = "1.0.7";
     
     src = fcitx5-bamboo;
     
@@ -35,6 +47,12 @@ let
       fmt
     ];
 
+    cmakeFlags = [
+      "-DCMAKE_INSTALL_PREFIX=${placeholder "out"}"
+      "-DCMAKE_INSTALL_LIBDIR=lib"
+      "-DFCITX_VERSION=5.1.12"
+    ];
+
     GOCACHE = "/tmp/go-cache";
     GOPATH = "/tmp/go";
     
@@ -43,20 +61,18 @@ let
       mkdir -p bamboo
       cp -r ${bamboo-core}/* bamboo/bamboo-core/
     '';
-
-    cmakeFlags = [
-      "-DCMAKE_INSTALL_PREFIX=${placeholder "out"}"
-      "-DCMAKE_INSTALL_LIBDIR=lib"
-    ];
   };
 
-in {
-  i18n.inputMethod = lib.mkForce {
-    enabled = "fcitx5";
-    package = pkgs.fcitx5-with-addons.override {
-      addons = [ fcitx5-bamboo-pkg ];
-    };
+  fcitx5-full = pkgs.fcitx5-with-addons.override {
+    addons = [ fcitx5-bamboo-pkg ];
   };
+in
+{
+  nixpkgs.overlays = [ fcitx5-overlay ];
+
+  home.packages = [
+    fcitx5-full
+  ];
 
   home.sessionVariables = {
     GTK_IM_MODULE = "fcitx";
@@ -64,6 +80,7 @@ in {
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
     INPUT_METHOD = "fcitx";
-    XDG_FCITX5_DIRS = lib.mkForce "${pkgs.fcitx5-with-addons}/share:$HOME/.nix-profile/share:$XDG_FCITX5_DIRS";
+    XDG_FCITX5_DIRS = "${fcitx5-full}/share:$HOME/.nix-profile/share:$XDG_FCITX5_DIRS";
   };
 }
+
