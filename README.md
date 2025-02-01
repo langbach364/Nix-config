@@ -66,4 +66,4 @@ File cấu hình cho VSCode/VSCodium.
 2. **Cách 2**:
    - Paste trực tiếp vào đường dẫn mà VSCode đang link tới
   
-    ![](./image.png)
+    ![](./image-1.png)
