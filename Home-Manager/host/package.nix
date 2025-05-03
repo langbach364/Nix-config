@@ -4,6 +4,7 @@
     ./application/fcitx5-bamboo.nix
     ./application/obs.nix
     ./application/discord.nix
+    ./application/telegram.nix
   ];
 
   home.packages = with pkgs; [
@@ -20,6 +21,13 @@
     go
     nodejs_latest
     libsecret
+    solc
+    python39
+    zip
+    unzip
+    rar
+    expect
+    ansifilter
   ];
 
   # Cho phép Direnv

@@ -74,7 +74,6 @@
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.ignoreBracketedPasteMode": true,
   "workbench.colorTheme": "Tokyo Night",
-  "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.enableImages": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.focusAfterRun": "terminal",
@@ -119,8 +118,15 @@
   "security.workspace.trust.untrustedFiles": "open",
   "debug.disassemblyView.showSourceCode": false,
   "hediet.vscode-drawio.resizeImages": null,
-  "markdown-preview-enhanced.previewTheme": "one-dark.css",
-  "markdown-preview-enhanced.enablePreviewZenMode": false,
   "diffEditor.ignoreTrimWhitespace": true,
-  "cody.suggestions.mode": "auto-edit (Experimental)"
+  "cody.suggestions.mode": "auto-edit",
+  "cody.commandCodeLenses": true,
+  "cody.experimental.tracing": true,
+  "cody.rules.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "explorer.confirmDelete": false,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "editor.largeFileOptimizations": false
 }
